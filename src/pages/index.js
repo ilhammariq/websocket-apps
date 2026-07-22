@@ -22,7 +22,8 @@ export default function ChatPage() {
   }, [messages]);
 
   function connect(name) {
-    const ws = new WebSocket('ws://localhost:3001/api/ws');
+    const urlWebSocket = process.env.NEXT_PUBLIC_URL_WEB_SOCKET
+    const ws = new WebSocket(urlWebSocket);
     wsRef.current = ws;
     setStatus("connecting");
 
